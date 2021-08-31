@@ -13,8 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Export Tag Name
-      run: |
-           echo "::set-env name=NEW_TAG::${GITHUB_REF/refs\/tags\//}"
+      run: echo "NEW_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag virtaltd/pipeline-aws-k8s:${{ env.NEW_TAG }}
     - name: Docker Login
