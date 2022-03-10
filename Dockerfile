@@ -1,5 +1,5 @@
 FROM atlassian/pipelines-awscli
-ARG KUBECTL_VERSION=v1.20.15
+ARG KUBECTL_VERSION=v1.21.10
 RUN apk --update --no-cache add curl
 RUN apk add git
 RUN apk add openssh-client
